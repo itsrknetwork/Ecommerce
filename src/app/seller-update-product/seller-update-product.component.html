@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="text-center">
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> Your Product Details has been Updated successfully.
+            <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+<h2>Update your Proudct </h2>`
+<p>{{productMessage}}</p>
+<form #addProduct="ngForm" (ngSubmit)="submit(addProduct.value)" class="common-form">
+    <input type="text" class="form-input" placeholder="Enter Product name" name="name" ngModel="{{productData?.name}}"/>
+    <input type="text" class="form-input" placeholder="Enter Product price" name="price" ngModel="{{productData?.price}}"/>
+    <input type="text" class="form-input" placeholder="Enter Product category" name="category" ngModel="{{productData?.category}}"/>
+    <input type="text" class="form-input" placeholder="Enter Product color" name="color" ngModel="{{productData?.color}}"/>
+    <textarea type="text" class="form-input" placeholder="Enter Product description" name="description" ngModel="{{productData?.description}}"></textarea>
+    <input type="text" class="form-input" placeholder="Enter Product Image url" name="image" ngModel="{{productData?.image}}"/>
+    <div class="form-group">
+        <button  type="submit" class="btn btn-primary">Update</button>
+      </div>
+</form>
+</div>
+</div>

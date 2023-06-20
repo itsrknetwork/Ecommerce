@@ -1,0 +1,176 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Your order has been successfully placed.<a routerLink="my-order">check your Order here</a>
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
+<div *ngIf="!cashOnDelivery" class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+            <div class="card card0 rounded-0">
+                <div class="row">
+                    <div class="col-md-5 d-md-block d-none p-0 box">
+                        <div class="card rounded-0 border-0 card1" id="bill">
+                            <h3 id="heading1">Payment Summary</h3>
+                            <div class="row" *ngFor="let cart of cartData">
+                                <div class="col-lg-7 col-8 mt-4 line pl-4">
+
+                                    <h2 class="bill-head">{{cart.name}}</h2>
+                                    <small class="bill-date">color:{{cart.color}}</small>
+                                </div>
+                                <div class="col-lg-5 col-4 mt-4">
+                                    <h2 class="bill-head px-xl-5 px-lg-4">₹{{cart.price}}</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 red-bg">
+                                    <p class="bill-date" id="total-label">Total Price</p>
+                                    <h2 class="bill-head" id="total">₹{{totalPrice}}</h2>
+                                    <small class="bill-date" id="total-label">Price includes all taxes</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 col-sm-12 p-0 box">
+                        <div class="card rounded-0 border-0 card2" id="paypage">
+                            <div class="form-card">
+                                <h2 id="heading2" class="text-danger">Payment Method</h2>
+                                <div class="radio-group">
+                                    <div class="cc-selector" data-value="credit">
+                                        <input id="visa" type="radio" name="credit-card" value="visa" />
+                                        <label class="drinkcard-cc visa" for="visa"></label>
+                                        
+                                        <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+                                        <label class="drinkcard-cc mastercard"for="mastercard"></label>
+                                      
+                                    </div>
+                                  
+
+                                </div>
+                                <label class="pay">Name on Card</label>
+                                <input type="text" name="holdername" placeholder="Enter Full Name">
+                                <div class="row">
+                                    <div class="col-8 col-md-6">
+                                        <label class="pay">Card Number</label>
+                                        <input type="text" name="cardno" id="cr_no"
+                                            placeholder="Enter 16 digit card number" minlength="19" maxlength="19">
+                                    </div>
+                                    <div class="col-4 col-md-6">
+                                        <label class="pay">CVV</label>
+                                        <input type="password" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;"
+                                            class="placeicon" minlength="3" maxlength="3">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="pay">Expiration Date</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5"
+                                            maxlength="5">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="submit" value="MAKE A PAYMENT &nbsp; &#xf178;"
+                                            class="btn btn-info placeicon">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btn-check-outlined"><img
+                                    src="https://fastlegal.in/blog/wp-content/uploads/2021/06/images-18866637108299123004..jpg"
+                                    width="200px" height="60px"> <h5>Enter Upi id</h5></label>
+                                    <br>
+                                <input id="upi" type="text" value="example@abc.com" />
+                                <br><br>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="submit" value="Pay Now &nbsp; &#xf178;"
+                                            class="btn btn-info placeicon">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h5>
+                    <p> Don't want to Pay online? <a href="cursor:pointer" (click)="payOption()">Pay on delivery</a></p>
+                </h5>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div *ngIf="cashOnDelivery" class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+            <div class="card card0 rounded-0">
+                <div class="row">
+                    <div class="col-md-5 d-md-block d-none p-0 box">
+                        <div class="card rounded-0 border-0 card1" id="bill">
+                            <h3 id="heading1">Payment Summary</h3>
+                            <div class="row" *ngFor="let cart of cartData">
+                                <div class="col-lg-7 col-8 mt-4 line pl-4">
+
+                                    <h2 class="bill-head">{{cart.name}}</h2>
+                                    <small class="bill-date">color:{{cart.color}}</small>
+                                </div>
+                                <div class="col-lg-5 col-4 mt-4">
+                                    <h2 class="bill-head px-xl-5 px-lg-4">₹{{cart.price}}</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 red-bg">
+                                    <p class="bill-date" id="total-label">Total Price</p>
+                                    <h2 class="bill-head" id="total">₹{{totalPrice}}</h2>
+                                    <small class="bill-date" id="total-label">Price includes all taxes</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 col-sm-12 p-0 box">
+                        <div class="card rounded-0 border-0 card2" id="paypage">
+                            <div class="form-card">
+                                <h2 id="heading2" class="text-danger">Payment Method</h2>
+                                <div class='radio' data-value="COD"><img
+                                        src="https://png.pngtree.com/png-vector/20210527/ourlarge/pngtree-cash-on-delivery-truck-icon-png-image_3373084.jpg"
+                                        width="200px" height="100px">
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="submit" (click)="onSubmit(data)"
+                                            value="PLACE ORDER &nbsp; &#xf178;" class="btn btn-info placeicon">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

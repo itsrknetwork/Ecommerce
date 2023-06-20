@@ -1,0 +1,14 @@
+.card{
+    margin-top: 20px;
+    border: 2px solid rgb(131, 57, 214);
+    width: 550px;
+    padding: 45px;
+    top: 15%;
+    left: 35%;
+}
+button:disabled{
+    cursor: not-allowed;
+}
+.error-p{
+    color: red;
+}

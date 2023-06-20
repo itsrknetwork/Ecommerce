@@ -1,0 +1,14 @@
+table{
+    text-align: left;
+    color: rgb(16, 2, 24);
+}
+table td, table th{
+    border: 1px solid orange;
+    padding: 10px;
+    min-width: 160pxs;
+
+}
+img{
+    height: 100px;
+    width: 100px;
+}

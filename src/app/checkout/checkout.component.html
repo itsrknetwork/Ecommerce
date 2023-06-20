@@ -1,0 +1,31 @@
+
+<div class="card">
+    <div class="text-center">
+        <h1>Checkout</h1>
+        <h4> Add Shipping Address</h4>
+    </div>
+
+
+      
+        <form #orderData="ngForm" class="form-group" (ngSubmit)="goToPayments(orderData.value)">
+            <div class="text-center">
+            <input type="text" class="form-input" name="name" placeholder="Enter Your Name" ngModel fullname #fullname="ngModel" required />
+            <p class="invalid-input"><span *ngIf="fullname.invalid && fullname.touched"> Please Enter Full Name </span></p>
+            <br>
+            <input type="text" class="form-input" name="Email" placeholder="Enter valid email" ngModel email #email="ngModel" required />
+            <p class="invalid-input"><span *ngIf="email.invalid && email.touched"> Please Enter valid email address </span></p>
+            <br>
+            <input type="text" class="form-input" name="Address" placeholder="Enter Your Address" ngModel address #address="ngModel" required />
+            <p class="invalid-input"><span *ngIf="address.invalid && address.touched"> Please Enter valid address </span></p>
+            <br>
+            <input type="text" class="form-input" name="Mobile" placeholder="Enter Mobile No." ngModel mobile #mobile="ngModel" required />
+            <p class="invalid-input"><span *ngIf="mobile.invalid && mobile.touched"> Please Enter valid mobile number </span></p>
+            <br>
+        </div>
+            <div class="form-group">
+                <br><br>
+                <h4>Total Amount:{{totalPrice}}</h4>
+                 <button [disabled]="orderData.invalid"  class="btn btn-primary" >Continue</button>
+                </div>
+        </form>
+    </div>
